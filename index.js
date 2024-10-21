@@ -17,11 +17,11 @@ app.get('/', (req, res) => {
     res.send('La API del Sistema de Gestion Empresarial está activa');
 });
 
-app.post('api/empresas', agregarEmpresa);
-app.get('api/empresas', obtenerEmpresas);
-app.get('api/empresas/:id', obtenerEmpresa);
-app.put('api/empresas/:id', editarEmpresa);
-app.delete('api/empresas/:id', eliminarEmpresa);
+app.post('/api/empresas', agregarEmpresa);
+app.get('/api/empresas', obtenerEmpresas);
+app.get('/api/empresas/:id', obtenerEmpresa);
+app.put('/api/empresas/:id', editarEmpresa);
+app.delete('/api/empresas/:id', eliminarEmpresa);
 
 app.listen(PORT, () => {
     console.log(`El servidor se está ejecutando en el puerto ${PORT}`);

@@ -16,6 +16,7 @@ export const agregarEmpresa = async (req, res) => {
         ]);
         res.status(201).json({ id: results.insertId, message: 'Empresa creada exitosamente' });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Hubo un error al crear la empresa' });
     }
 };
@@ -50,6 +51,7 @@ export const obtenerEmpresa = async (req, res) => {
 
         res.status(200).json(results[0]);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Hubo un error cargando la empresa' });
     }
 };
@@ -70,6 +72,7 @@ export const editarEmpresa = async (req, res) => {
 
         res.status(200).json({ message: 'Empresa editada exitosamente' });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Hubo un error editando la empresa' });
     }
 };
@@ -82,6 +85,7 @@ export const eliminarEmpresa = async (req, res) => {
         await pool.query(sql, [id]);
         res.status(200).json({ message: 'Empresa eliminada exitosamente' });
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Error al eliminar la empresa' });
     }
 };
