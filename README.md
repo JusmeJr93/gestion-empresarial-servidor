@@ -29,3 +29,7 @@ Para el frontend, da clic [aquí](https://github.com/JusmeJr93/gestion-empresari
 - **controllers.js**: Controladores que gestionan la lógica para las operaciones CRUD.
 - **db.js**: Configuración de la conexión a la base de datos MySQL, incluyendo soporte para JAWSDB en Heroku.
 - **middleware.js**: Intercepta las peticiones del frontend y valida los campos según sea necesario.
+
+## Uso de IA
+
+- **Sugerencia del uso de express-validator**: Utilicé herramientas de Inteligencia Artificial para optimizar la validación de los campos del formulario. Inicialmente implementé validaciones a nivel de base de datos según los requisitos (longitud, formato de fecha, campos obligatorios y opcionales, etc.), pero los campos con formatos incorrectos o vacíos no eran gestionados adecuadamente durante las pruebas. Al investigar soluciones, se sugirió el uso de express-validator y la estructura para interceptar y validar los datos en el servidor antes de que lleguen a la base de datos.
