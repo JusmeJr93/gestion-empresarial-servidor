@@ -4,12 +4,15 @@ const pool = dbConnection();
 
 export const agregarEmpresa = async (req, res) => {
     const { nombre, fecha_constitucion, tipo_empresa, comentarios, favorita } = req.body;
-    const sql = `INSERT INTO empresas (nombre, fecha_constitución, tipo_empresa, comentarios, favorita) VALUES (?, ?, ?, ?, ?)`;
+
+    const fechaFormateada = new Date(fecha_constitucion).toISOString().split('T')[0]; //AAAA-MM-DD
+
+    const sql = `INSERT INTO empresas (nombre, fecha_constitucion, tipo_empresa, comentarios, favorita) VALUES (?, ?, ?, ?, ?)`;
 
     try {
         const [results] = await pool.query(sql, [
             nombre,
-            fecha_constitucion,
+            fechaFormateada,
             tipo_empresa,
             comentarios || '',
             favorita || false,
@@ -26,10 +29,6 @@ export const obtenerEmpresas = async (req, res) => {
 
     try {
         const [results] = await pool.query(sql);
-
-        if (results.length === 0) {
-            return res.status(404).json({ error: 'Aún no hay empresas creadas' });
-        }
 
         res.status(200).json(results);
     } catch (error) {
@@ -59,12 +58,15 @@ export const obtenerEmpresa = async (req, res) => {
 export const editarEmpresa = async (req, res) => {
     const { id } = req.params;
     const { nombre, fecha_constitucion, tipo_empresa, comentarios, favorita } = req.body;
-    const sql = `UPDATE empresas SET nombre = ?, fecha_constitución = ?, tipo_empresa = ?, comentarios = ?, favorita = ? WHERE id = ?`;
+
+    const fechaFormateada = new Date(fecha_constitucion).toISOString().split('T')[0];
+
+    const sql = `UPDATE empresas SET nombre = ?, fecha_constitucion = ?, tipo_empresa = ?, comentarios = ?, favorita = ? WHERE id = ?`;
 
     try {
         await pool.query(sql, [
             nombre,
-            fecha_constitucion,
+            fechaFormateada,
             tipo_empresa,
             comentarios || '',
             favorita || false, id

@@ -1,10 +1,8 @@
 # Gestión Empresarial - Backend
 
-Aplicación web para la gestión de empresas, que permite **crear**, **consultar**, **editar** y **eliminar** empresas desde una interfaz API REST. Este proyecto está construido con **Node.js**, **Express**, y **MySQL**.
+Este es el backend del sistema de gestión de empresas. Proporciona una API que permite a los usuarios realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre las empresas registradas en la base de datos. Es desarrollado con **Node.js**, **Express**, **MySQL** y está publicada en **Heroku**.
 
-## Descripción del Proyecto
-
-Este backend forma parte de un sistema de gestión empresarial. Proporciona una API que permite a los usuarios realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre las empresas registradas en la base de datos. La aplicación soporta conexiones locales a MySQL y está publicada en **Heroku** utilizando **JAWSDB** para la base de datos MySQL.
+Para el frontend, da clic [aquí](https://github.com/JusmeJr93/gestion-empresarial-servidor)
 
 ## Tecnologías Usadas
 
@@ -15,10 +13,11 @@ Este backend forma parte de un sistema de gestión empresarial. Proporciona una 
 - **dotenv**: Carga las variables de entorno desde un archivo `.env` para configuración segura.
 - **JAWSDB**: Base de datos MySQL en la nube usada en Heroku.
 - **Heroku**: Plataforma utilizada para el despliegue del backend.
+- **Express Validator**: Middleware(interceptor) para validar los campos recibidos del frontend.
 
 ## Características
 
-- **Crear empresa**: Agregar una nueva empresa con los detalles como nombre, fecha de constitución, tipo de empresa, comentarios y si es favorita.
+- **Crear empresa**: Agregar una nueva empresa con los detalles como nombre, fecha de constitución, tipo de empresa, comentarios y definir si es favorita.
 - **Consultar empresas**: Obtener una lista de todas las empresas almacenadas, ordenadas alfabéticamente por nombre.
 - **Consultar una empresa**: Obtener los detalles de una empresa específica mediante su ID.
 - **Editar empresa**: Actualizar la información de una empresa existente.
@@ -29,3 +28,4 @@ Este backend forma parte de un sistema de gestión empresarial. Proporciona una 
 - **index.js**: Archivo principal donde se configuran las rutas y se inicializa el servidor Express.
 - **controllers.js**: Controladores que gestionan la lógica para las operaciones CRUD.
 - **db.js**: Configuración de la conexión a la base de datos MySQL, incluyendo soporte para JAWSDB en Heroku.
+- **middleware.js**: Intercepta las peticiones del frontend y valida los campos según sea necesario.
